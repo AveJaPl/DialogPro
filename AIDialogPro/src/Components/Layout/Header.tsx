@@ -7,7 +7,7 @@ const Header = (props: HeaderProps) => {
         <div className={`chatbot-box-header`}>
             <div className={`chatbot-box-header-logo`}></div>
             <div className={`chatbot-box-header-title`}>
-                <strong>AIDialogPro</strong>
+                <strong>AIDialogPro</strong><br/>
                 <span>W czym ci pomóc?</span>
             </div>
             <div className={`chatbot-box-close-btn`}>
