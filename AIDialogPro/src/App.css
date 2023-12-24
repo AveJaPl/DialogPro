@@ -67,7 +67,7 @@
   flex-direction: column;
 }
 
-.chatbot-box-msgbox {
+.chatbot-box-body-message {
   width: 100%;
   flex-grow: 1;
   display: flex;
@@ -77,7 +77,7 @@
   scrollbar-width: thin;
 }
 
-.chatbot-box-msgbox>div {
+.chatbot-box-body-message>div {
   width: calc(100% - 20px);
   margin: 2.5% 10px;
   display: flex;
@@ -192,17 +192,17 @@
   font-size: 8px;
 }
 
-.chatbot-box-msgbox::-webkit-scrollbar {
+.chatbot-box-body-message::-webkit-scrollbar {
   width: 3px;
   height: 8px;
 }
 
-.chatbot-box-msgbox::-webkit-scrollbar-thumb {
+.chatbot-box-body-message::-webkit-scrollbar-thumb {
   background-color: #ddd;
   border-radius: 4px;
 }
 
-.chatbot-box-msgbox::-webkit-scrollbar-track {
+.chatbot-box-body-message::-webkit-scrollbar-track {
   background-color: transparent;
 }
 
@@ -255,7 +255,7 @@ only screen and (orientation: landscape) and (max-device-width: 850px) {
     -ms-text-size-adjust: 100%;
   }
 
-  .chatbot-box-msgbox>div {
+  .chatbot-box-body-message>div {
     width: 95%;
     margin: 2.5%;
   }
