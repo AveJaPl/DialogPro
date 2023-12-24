@@ -21,7 +21,7 @@ const Body = (props: BodyProps) => {
                             key={index}
                             ref={index === arr.length - 1 ? props.lastMessageRef : null}
                         >
-                            <div className={message['role'] === 'user' ? 'user' : 'bot'}>
+                            <div className={message['role'] === 'user' ? 'message user' : 'message'}>
                                 <div className={`chatbot-box-body-message-text`}>
                                     {message['content']}
                                 </div>
