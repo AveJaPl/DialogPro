@@ -216,8 +216,7 @@
   background: transparent;
   color: #333;
   border: none;
-  font-size: 2em;
-  rotate: 45deg;
+  font-size: 1.5em;
 }
 
 @media only screen and (max-width: 600px) and (max-device-width: 850px),

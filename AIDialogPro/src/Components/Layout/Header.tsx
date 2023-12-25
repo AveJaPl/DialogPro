@@ -1,3 +1,6 @@
+import {IoMdClose} from "react-icons/io";
+
+
 type HeaderProps = {
     handleClose: () => void
 }
@@ -13,7 +16,9 @@ const Header = (props: HeaderProps) => {
             <div className={`chatbot-box-close-btn`}>
                 <button
                     onClick={props.handleClose}
-                >+</button>
+                >
+                    <IoMdClose/>
+                </button>
             </div>
         </div>
     )

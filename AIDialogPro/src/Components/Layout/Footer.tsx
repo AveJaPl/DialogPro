@@ -1,6 +1,6 @@
 import React, {useCallback, useState} from 'react'
 import axios from 'axios'
-
+import { IoIosSend } from "react-icons/io";
 type FooterProps = {
     loading: boolean,
     setMessages: (messages: any[]) => void
@@ -67,7 +67,9 @@ const Footer: React.FC<FooterProps> = ({loading, setMessages}) => {
                         className={`chatbot-box-footer-send-btn`}
                         onClick={()=> handleSendMessage(input)}
                         disabled={loading}
-                    >{loading ? '...' : 'Wyślij'}</button>
+                    >
+                        <IoIosSend />
+                    </button>
 
                 </div>
             </div>
