@@ -4,7 +4,6 @@ import Header from "./Components/Layout/Header.tsx";
 import Body from "./Components/Layout/Body.tsx";
 import Footer from "./Components/Layout/Footer.tsx";
 import axios from 'axios'
-import {json} from "stream/consumers";
 
 function App() {
     const [show, setShow] = useState(false)
@@ -15,6 +14,8 @@ function App() {
         setShow(false)
     }
     const handleSetMessages = (new_messages: any[]) => {
+        console.log("Nowe wiadomości:")
+        console.log(new_messages)
         if(new_messages.length === 1 && new_messages[0]['role'] === 'user'){
             console.log("Ustawiam wiadomość użytkownika")
             setMessages(prevState => [...prevState, new_messages[0]])
@@ -32,11 +33,12 @@ function App() {
                 },
                 withCredentials: true
             })
-            const chatHistory = typeof res.data === 'string' ? JSON.parse(res.data) : res.data;
-
-            // Jeśli chat_history jest również ciągiem znaków, konwertujemy go również
-            const messages = typeof chatHistory['chat_history'] === 'string' ? JSON.parse(chatHistory['chat_history']) : chatHistory['chat_history'];
-            setMessages(messages)
+            console.log("Odpowiedź:\n")
+            console.log(res)
+            const chatHistory = res.data['chat_history']
+            if (chatHistory){
+                setMessages(chatHistory)
+            }
         } catch(err){
             console.log(err)
         }

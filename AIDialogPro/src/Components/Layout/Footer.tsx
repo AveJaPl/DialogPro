@@ -42,8 +42,9 @@ const Footer: React.FC<FooterProps> = ({loading, setMessages}) => {
                     withCredentials: true
                 }
             )
-            setMessages(res.data["history"])
-            console.log(res.data["history"])
+            console.log("Odpowiedź:\n")
+            console.log(res)
+            setMessages(res.data['chat_history'])
         } catch(err){
             console.log(err)
             setError('Wygląda na to, że coś poszło nie tak. Spróbuj ponownie później.')

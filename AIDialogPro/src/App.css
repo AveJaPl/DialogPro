@@ -6,6 +6,9 @@
   --background-color: #fff;
   --bot_message_color: #e4e4e4
 }
+html{
+  background-color: #333;
+}
 
 .chatbot-box {
   opacity: 0;
