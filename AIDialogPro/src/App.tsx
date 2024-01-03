@@ -13,15 +13,14 @@ function App() {
     const handleClose = () => {
         setShow(false)
     }
+    const handleSetLoading = (value: boolean) => {
+        setLoading(value)
+    }
     const handleSetMessages = (new_messages: any[]) => {
-        console.log("Nowe wiadomości:")
-        console.log(new_messages)
         if(new_messages.length === 1 && new_messages[0]['role'] === 'user'){
-            console.log("Ustawiam wiadomość użytkownika")
             setMessages(prevState => [...prevState, new_messages[0]])
         }
         else{
-            console.log("Ustawiam wszystkie wiadomości")
             setMessages(new_messages)
         }
     }
@@ -33,8 +32,6 @@ function App() {
                 },
                 withCredentials: true
             })
-            console.log("Odpowiedź:\n")
-            console.log(res)
             const chatHistory = res.data['chat_history']
             if (chatHistory){
                 setMessages(chatHistory)
@@ -53,7 +50,7 @@ function App() {
         <div className={show ? `chatbot-box active` : `chatbot-box`}>
             <Header handleClose={handleClose} />
             <Body messages={messages} loading={loading} lastMessageRef={lastMessageRef} />
-            <Footer loading={loading} setMessages={handleSetMessages}/>
+            <Footer loading={loading} setLoading={handleSetLoading} setMessages={handleSetMessages}/>
         </div>
         <div className={`chatbot-btn`} onClick={()=>setShow(!show)}>
             <span>?</span>

@@ -4,9 +4,10 @@ import { IoIosSend } from "react-icons/io";
 type FooterProps = {
     loading: boolean,
     setMessages: (messages: any[]) => void
+    setLoading: (value: boolean) => void
 }
 
-const Footer: React.FC<FooterProps> = ({loading, setMessages}) => {
+const Footer: React.FC<FooterProps> = ({loading,setLoading , setMessages}) => {
     const [input, setInput] = useState('')
     const [error, setError] = useState('')
     const currentYear = new Date().getFullYear()
@@ -17,7 +18,6 @@ const Footer: React.FC<FooterProps> = ({loading, setMessages}) => {
     const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
         if(e.key === 'Enter'){
             handleSendMessage(input)
-            setInput('')
         }
     }
 
@@ -25,12 +25,14 @@ const Footer: React.FC<FooterProps> = ({loading, setMessages}) => {
         if(input.trim() === ''){
             return
         }
-        console.log("Wysyłam: ", input)
+        setLoading(true)
         setMessages([{
             role: 'user',
             content: input,
             // time: new Date().toLocaleTimeString()
         }])
+        setInput('')
+
         try{
             const res = await axios.post(
                 'https://localhost/message',
@@ -48,6 +50,8 @@ const Footer: React.FC<FooterProps> = ({loading, setMessages}) => {
         } catch(err){
             console.log(err)
             setError('Wygląda na to, że coś poszło nie tak. Spróbuj ponownie później.')
+        } finally{
+            setLoading(false)
         }
 
     }, [])
