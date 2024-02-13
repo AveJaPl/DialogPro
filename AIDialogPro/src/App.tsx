@@ -4,6 +4,7 @@ import Header from "./Components/Layout/Header.tsx";
 import Body from "./Components/Layout/Body.tsx";
 import Footer from "./Components/Layout/Footer.tsx";
 import axios from 'axios'
+import getHistory from "./Services/getHistory.ts";
 
 function App() {
     const [show, setShow] = useState(false)
@@ -27,15 +28,7 @@ function App() {
     }
     const fetchMessages = async() => {
         try{
-            const res = await axios.post("https://localhost/history", {}, {
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                withCredentials: true
-            })
-            console.log("Odpowiedź:\n")
-            console.log(res)
-            const chatHistory = res.data['chat_history']
+            const chatHistory = await getHistory()
             if (chatHistory){
                 setMessages(chatHistory)
             }
@@ -55,8 +48,8 @@ function App() {
             <Body messages={messages} loading={loading} lastMessageRef={lastMessageRef} />
             <Footer loading={loading} setMessages={handleSetMessages}/>
         </div>
-        <div className={`chatbot-btn`} onClick={()=>setShow(!show)}>
-            <span>?</span>
+        <div className={`chatbot-toggle-btn ${show && 'active'}`} onClick={(()=>setShow(!show))}>
+            <span>ask</span>
         </div>
 
     </>
