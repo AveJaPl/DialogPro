@@ -4,30 +4,16 @@ import Header from './Components/Layout/Header.tsx'
 import Body from './Components/Layout/Body.tsx'
 import Footer from './Components/Layout/Footer.tsx'
 import getHistory from './Services/getHistory.ts'
-import TMessage from './Types/TMessage.ts'
 import { MdOutlineChatBubble } from 'react-icons/md'
+import { useMessages } from './Context/messagesContext.tsx'
 
 function App() {
   const [show, setShow] = useState(false)
-  const [messages, setMessages] = useState<TMessage[]>([])
-  const [loading, setLoading] = useState(false)
   const lastMessageRef = useRef<HTMLDivElement>(null)
+
+  const { messages, setMessages, loading } = useMessages()
   const handleClose = () => {
     setShow(false)
-  }
-
-  const handleSetMessages = (new_messages: any[]) => {
-    console.log('Nowe wiadomości:')
-    console.log(new_messages)
-    if (new_messages.length === 1 && new_messages[0]['role'] === 'user') {
-      console.log('Ustawiam wiadomość użytkownika')
-      setLoading(true)
-      setMessages((prevState) => [...prevState, new_messages[0]])
-    } else {
-      setLoading(false)
-      console.log('Ustawiam wszystkie wiadomości')
-      setMessages(new_messages)
-    }
   }
 
   useEffect(() => {
@@ -37,7 +23,6 @@ function App() {
   }, [loading, messages, lastMessageRef])
   const fetchMessages = async () => {
     try {
-      console.log('Ładowanie: ' + loading)
       const chatHistory = await getHistory()
       if (chatHistory) {
         setMessages(chatHistory)
@@ -53,18 +38,14 @@ function App() {
   return (
     <>
       <div
-        className={`flex flex-col bg-neutral-50 w-80 h-110 absolute right-5 bottom-5 rounded-lg shadow-lg overflow-hidden transition-all duration-300 ${show ? 'opacity-100' : 'opacity-0 -translate-y-10'}`}
+        className={`flex flex-col bg-neutral-50 w-full h-full sm:w-80 sm:h-110 absolute right-0 sm:right-5 bottom-0 sm:bottom-5 rounded-none sm:rounded-lg shadow-lg overflow-hidden transition-all ${show ? 'block' : 'hidden'}`}
       >
         <Header handleClose={handleClose} />
-        <Body
-          messages={messages}
-          loading={loading}
-          lastMessageRef={lastMessageRef}
-        />
-        <Footer loading={loading} setMessages={handleSetMessages} />
+        <Body lastMessageRef={lastMessageRef} />
+        <Footer />
       </div>
       <div
-        className={`fixed right-5 bottom-5 rounded-full p-4 bg-red-700 cursor-pointer shadow-md ${show && 'hidden'}`}
+        className={`fixed right-5 bottom-5 rounded-full p-4 bg-red-500 cursor-pointer shadow-md ${show ? 'hidden' : 'block'}`}
         onClick={() => setShow(!show)}
       >
         <MdOutlineChatBubble className="text-white text-2xl" />
