@@ -15,7 +15,15 @@ export default {
         '110': '27.5rem',
         '120': '30rem',
         '200': '50rem',
-      }
+      },
+      bgColor: {
+        'primary': '#FFA500',
+        'secondary': '#FFD700',
+        'user': '#FFD700',
+        'bot': '#FFA500',
+        'send-button': '#FFA500',
+        'toggle-button': '#FFA500',
+      },
     },
   },
   plugins: [],
