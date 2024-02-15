@@ -1,8 +1,8 @@
-# AIDialogPro
+# DialogPro
 
 
 ## Introduction
-Welcome to AIDialogPro, a versatile and user-friendly chatbot interface designed for seamless integration into your applications. Developed using React with Vite and TypeScript, this project offers a robust foundation for creating interactive, real-time chat experiences. Whether you're looking to enhance customer service, streamline communication, or simply add a dynamic element to your project, AIDialogPro is ready to meet your needs.
+Welcome to DialogPro, a versatile and user-friendly chatbot interface designed for seamless integration into your applications. Developed using React with Vite and TypeScript, this project offers a robust foundation for creating interactive, real-time chat experiences. Whether you're looking to enhance customer service, streamline communication, or simply add a dynamic element to your project, DialogPro is ready to meet your needs.
 
 
 ## Key Features
@@ -55,4 +55,4 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 
 ___
-Thank you for choosing AIDialogPro for your project. I hope you enjoy using it as much as I enjoyed creating it. If you have any questions or concerns, please don't hesitate to contact me. I look forward to hearing from you!
+Thank you for choosing DialogPro for your project. I hope you enjoy using it as much as I enjoyed creating it. If you have any questions or concerns, please don't hesitate to contact me. I look forward to hearing from you!
