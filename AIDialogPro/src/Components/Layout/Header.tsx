@@ -1,27 +1,27 @@
-import {IoMdClose} from "react-icons/io";
-
+import { IoMdClose } from 'react-icons/io'
+import logo from '../../Logo/logo.png'
 
 type HeaderProps = {
-    handleClose: () => void
+  handleClose: () => void
 }
 
 const Header = (props: HeaderProps) => {
-    return (
-        <div className={`chatbot-box-header`}>
-            <div className={`chatbot-box-header-logo`}></div>
-            <div className={`chatbot-box-header-title`}>
-                <strong>AIDialogPro</strong><br/>
-                <span>W czym ci pomóc?</span>
-            </div>
-            <div className={`chatbot-box-close-btn`}>
-                <button
-                    onClick={props.handleClose}
-                >
-                    <IoMdClose/>
-                </button>
-            </div>
-        </div>
-    )
+  return (
+    <div className={`w-full flex border-b-2 p-2`}>
+      <div className={`w-1/6`}>
+        <img src={logo} alt="logo" className={`w-10`} />
+      </div>
+      <div className={`flex flex-col w-2/3`}>
+        <strong className={`text-sm`}>AIDialogPro</strong>
+        <span className={`text-xs`}>W czym ci pomóc?</span>
+      </div>
+      <div className={`p-2 w-1/6 flex justify-end items-start`}>
+        <button onClick={props.handleClose} className={`text-2xl`}>
+          <IoMdClose />
+        </button>
+      </div>
+    </div>
+  )
 }
 
 export default Header
