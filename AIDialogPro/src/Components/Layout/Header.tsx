@@ -12,7 +12,7 @@ const Header = (props: HeaderProps) => {
         <img src={logo} alt="logo" className={`w-10`} />
       </div>
       <div className={`flex flex-col w-2/3`}>
-        <strong className={`text-sm`}>AIDialogPro</strong>
+        <strong className={`text-sm`}>AIDialog Pro</strong>
         <span className={`text-xs`}>W czym ci pomóc?</span>
       </div>
       <div className={`p-2 w-1/6 flex justify-end items-start`}>
@@ -23,5 +23,5 @@ const Header = (props: HeaderProps) => {
     </div>
   )
 }
-
+ 
 export default Header
