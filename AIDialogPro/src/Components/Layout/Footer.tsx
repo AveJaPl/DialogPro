@@ -65,7 +65,7 @@ const Footer = () => {
     <div className={`w-full flex flex-col border-t-2 p-2`}>
       <div className={`flex justify-between p-2`}>
         <input
-          className={`w-5/6 border-2 p-2 rounded-lg active:outline-none focus:outline-none focus:border-red-500`}
+          className={`text-sm w-5/6 border-2 p-2 rounded-lg active:outline-none focus:outline-none focus:border-red-500`}
           placeholder={loading ? 'Pisze...' : 'Wpisz wiadomość...'}
           onChange={(e) => handleInput(e)}
           value={input}
