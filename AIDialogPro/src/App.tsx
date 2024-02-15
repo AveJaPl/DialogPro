@@ -52,15 +52,6 @@ function App() {
   }, [])
   return (
     <>
-        <div className={show ? `chatbot-box active` : `chatbot-box`}>
-            <Header handleClose={handleClose} />
-            <Body messages={messages} loading={loading} lastMessageRef={lastMessageRef} />
-            <Footer loading={loading} setMessages={handleSetMessages}/>
-        </div>
-        <div className={`chatbot-toggle-btn ${show && 'active'}`} onClick={(()=>setShow(!show))}>
-            <span>ask</span>
-        </div>
-
       <div
         className={`flex flex-col bg-neutral-50 w-80 h-110 absolute right-5 bottom-5 rounded-lg shadow-lg overflow-hidden transition-all duration-300 ${show ? 'opacity-100' : 'opacity-0 -translate-y-10'}`}
       >
@@ -76,6 +67,7 @@ function App() {
         className={`fixed right-5 bottom-5 rounded-full p-4 bg-red-700 cursor-pointer shadow-md ${show && 'hidden'}`}
         onClick={() => setShow(!show)}
       >
+        <MdOutlineChatBubble className="text-white text-2xl" />
       </div>
     </>
   )
