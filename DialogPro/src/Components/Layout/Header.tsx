@@ -12,7 +12,7 @@ const Header = (props: HeaderProps) => {
         <img src={logo} alt="logo" className={`w-10`} />
       </div>
       <div className={`flex flex-col w-2/3`}>
-        <strong className={`text-sm`}>AIDialog Pro</strong>
+        <strong className={`text-sm`}>DialogPro</strong>
         <span className={`text-xs`}>W czym ci pomóc?</span>
       </div>
       <div className={`p-2 w-1/6 flex justify-end items-start`}>
