@@ -54,7 +54,7 @@ const Footer = () => {
       setLoading(false)
     }
     if (sent) {
-      getAnswerFromServer(input).then(()=>{
+      getAnswerFromServer(input).then(() => {
         setInput('')
       })
       setSent(false)

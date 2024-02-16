@@ -21,7 +21,7 @@ const getHistory = async (): Promise<TMessage[]> => {
         id: '',
         role: 'assistant',
         content: 'Wystąpił błąd!',
-        timestamp: 'date'
+        timestamp: 'date',
       },
     ]
   }
