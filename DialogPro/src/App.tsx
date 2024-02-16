@@ -38,7 +38,7 @@ function App() {
   return (
     <>
       <div
-        className={`flex flex-col bg-neutral-50 w-full h-full sm:w-80 sm:h-110 fixed right-0 sm:right-5 bottom-0 sm:bottom-5 rounded-none sm:rounded-lg shadow-lg overflow-hidden transition-all z-50 ${show ? 'block' : 'hidden'}`}
+        className={`flex flex-col bg-neutral-50 w-full h-full sm:w-80 sm:h-110 fixed right-0 sm:right-5 bottom-0 sm:bottom-5 rounded-none sm:rounded-lg shadow-lg overflow-hidden transition-all z-max ${show ? 'block' : 'hidden'}`}
       >
         <Header handleClose={handleClose} />
         <Body lastMessageRef={lastMessageRef} />
