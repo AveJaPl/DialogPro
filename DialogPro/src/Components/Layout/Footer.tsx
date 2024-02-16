@@ -15,7 +15,6 @@ const Footer = () => {
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
       handleSendMessage(input)
-      setInput('')
     }
   }
 
@@ -37,8 +36,8 @@ const Footer = () => {
   }
 
   useEffect(() => {
-    const getAnswerFromServer = async () => {
-      let { chat, message, status } = await getAnswer(input)
+    const getAnswerFromServer = async (user_prompt: string) => {
+      let { chat, message, status } = await getAnswer(user_prompt)
       if (status === 200) {
         setMessages(chat)
       } else {
@@ -55,8 +54,9 @@ const Footer = () => {
       setLoading(false)
     }
     if (sent) {
-      getAnswerFromServer()
-      setInput('')
+      getAnswerFromServer(input).then(()=>{
+        setInput('')
+      })
       setSent(false)
     }
   }, [sent])
