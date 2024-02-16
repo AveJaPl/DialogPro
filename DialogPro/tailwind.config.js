@@ -24,6 +24,9 @@ export default {
         'send-button': '#FFA500',
         'toggle-button': '#FFA500',
       },
+      zIndex: {
+        'max': '99999'
+      }
     },
   },
   plugins: [],
