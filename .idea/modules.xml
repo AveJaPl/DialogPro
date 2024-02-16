@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/AIDialogPro.iml" filepath="$PROJECT_DIR$/.idea/AIDialogPro.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/DialogPro.iml" filepath="$PROJECT_DIR$/.idea/DialogPro.iml" />
     </modules>
   </component>
 </project>
