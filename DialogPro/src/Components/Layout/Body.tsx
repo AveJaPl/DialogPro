@@ -27,10 +27,10 @@ const Body = (props: BodyProps) => {
               className={`flex break-words ${message.role === 'user' ? 'justify-end' : 'justify-start'} mb-2`}
             >
               <div
-                className={`min-w-48 sm:min-w-28 max-w-96 sm:max-w-60 mb-2 px-4 py-2 rounded-3xl ${
+                className={`min-w-48 sm:min-w-28 max-w-96 sm:max-w-60 mb-2 px-4 py-2 rounded-2xl ${
                   message.role === 'user'
-                    ? 'bg-red-500 text-white rounded-br-none'
-                    : 'bg-gray-200 rounded-bl-none '
+                    ? 'bg-red-500 text-white rounded-br-none rounded-bl-3xl rounded-tr-3xl'
+                    : 'bg-gray-200 rounded-bl-none rounded-br-3xl rounded-tl-3xl'
                 }`}
               >
                 <div className="text-sm">{message.content}</div>
