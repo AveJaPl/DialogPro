@@ -1,6 +1,12 @@
+import FormattedResponseWrapper from "../../Services/FormattedResponse.tsx";
+
 type MessageProps = {
   index: number
-  message: any
+  message: {
+    role: string
+    content: string
+    timestamp: string
+  }
   arr: any[]
   lastMessageRef: any
 }
@@ -19,7 +25,9 @@ function Message({ index, message, arr, lastMessageRef }: MessageProps) {
             : 'bg-gray-200 rounded-bl-none rounded-br-3xl rounded-tl-3xl'
         }`}
       >
-        <div className="text-sm">{message.content}</div>
+        <div className="text-sm">
+          <FormattedResponseWrapper response={message.content} />
+        </div>
         <div
           className={`text-2xs ${message.role === 'user' ? 'text-white' : 'text-black'} text-right mt-1`}
         >
